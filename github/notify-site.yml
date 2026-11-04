@@ -1,0 +1,31 @@
+name: Notify Riebeckite site
+
+on:
+  push:
+    branches: [main]
+
+permissions: {}
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate dispatch configuration
+        env:
+          SITE_DISPATCH_TOKEN: ${{ secrets.SITE_DISPATCH_TOKEN }}
+        run: |
+          if [ -z "$SITE_DISPATCH_TOKEN" ]; then
+            echo "::error::SITE_DISPATCH_TOKEN is not configured. Add a token that can dispatch to Rerurate514/riebeckite-e2e-site."
+            exit 1
+          fi
+
+      - name: Notify the site repository
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7.1.0
+        with:
+          github-token: ${{ secrets.SITE_DISPATCH_TOKEN }}
+          script: |
+            await github.rest.repos.createDispatchEvent({
+              owner: "Rerurate514",
+              repo: "riebeckite-e2e-site",
+              event_type: "content-updated",
+            });

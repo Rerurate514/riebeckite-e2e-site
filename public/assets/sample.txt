@@ -1,0 +1,4 @@
+Riebeckite E2E sample attachment
+
+This file is served as a static asset from content/assets/sample.txt.
+The published URL is /assets/sample.txt.

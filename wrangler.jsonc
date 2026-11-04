@@ -1,0 +1,17 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "riebeckite-e2e-site",
+  "routes": [
+    {
+      "pattern": "repositories.riebeckite.dev",
+      "custom_domain": true
+    }
+  ],
+  "compatibility_date": "2026-06-09",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "assets": {
+    "directory": "./dist"
+  }
+}
