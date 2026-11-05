@@ -93,14 +93,18 @@ Runs on pushes to `main`, manual dispatch, and `repository_dispatch` events of t
 
 Copy `github/notify-site.yml` to `.github/workflows/notify-site.yml` in the Vault repository. It sends a `content-updated` dispatch to this repository on every push to the Vault's `main`.
 
-Required secrets:
+Required credentials:
 
-| Repository | Secret | Purpose |
-| --- | --- | --- |
-| site | `CLOUDFLARE_API_TOKEN` | Workers Scripts:Edit for the account |
-| site | `CLOUDFLARE_ACCOUNT_ID` | Cloudflare account ID |
-| site | `RIEBECKITE_CONTENT_READ_TOKEN` | Optional. Only needed if the Vault is private. Public Vaults are read with the workflow's `github.token`. |
-| vault | `SITE_DISPATCH_TOKEN` | Fine-grained token scoped to this repository with **Contents: read and write**, used to create the dispatch. |
+| Repository | Name | Kind | Purpose |
+| --- | --- | --- | --- |
+| site | `CLOUDFLARE_API_TOKEN` | Secret | Workers Scripts:Edit for the account |
+| site | `CLOUDFLARE_ACCOUNT_ID` | Variable | Cloudflare account ID |
+| site | `RIEBECKITE_CONTENT_READ_TOKEN` | Secret | Optional. Only needed if the Vault is private. Public Vaults are read with the workflow's `github.token`. |
+| vault | `RIEBECKITE_APP_ID` | Secret | GitHub App ID for the dispatch token |
+| vault | `RIEBECKITE_APP_PRIVATE_KEY` | Secret | GitHub App private key |
+| vault | `SITE_DISPATCH_TOKEN` | Secret | Optional fallback instead of the GitHub App |
+
+The GitHub App needs **Contents: read and write** and **Metadata: read-only**, and must be installed only on this site repository. The workflow mints a short-lived installation token for each dispatch.
 
 ## Content
 
@@ -109,10 +113,10 @@ All content is in the Vault repository. This repository only contains code, conf
 ## Related documentation
 
 - [Quick Start](https://riebeckite.dev/getting-started/quick-start)
-- [Separate content repository concepts](https://riebeckite.dev/guides/deployment/separate-content-repository/concepts)
-- [Repository split](https://riebeckite.dev/guides/deployment/separate-content-repository/repository-split)
-- [Publishing](https://riebeckite.dev/guides/deployment/separate-content-repository/publishing)
+- [Project structure](https://riebeckite.dev/getting-started/project-structure)
+- [Separate repositories setup](https://riebeckite.dev/getting-started/separate-repositories-setup)
 - [Cloudflare Workers deployment](https://riebeckite.dev/guides/deployment/cloudflare-workers)
+- [GitHub Actions deployment](https://riebeckite.dev/guides/deployment/github-actions)
 
 ## License
 
