@@ -1,9 +1,9 @@
 {
   "version": 1,
   "lastSuccess": {
-    "runId": "45465c8a-6220-4bb2-866a-b2e13dc8b22e",
-    "publishedAt": "2026-11-05T03:19:33.808Z",
-    "publicationFingerprint": "ecb09109c00b40747d8fb071feb06bf6e02af7fed18f186402e291e73a1557c4",
+    "runId": "96213ad0-7de3-4b12-bb8d-fd2fefe0afdb",
+    "publishedAt": "2026-11-05T03:22:10.425Z",
+    "publicationFingerprint": "c535c2c02d4771f9906f9fdba69eb1b06e87de2e57ff89000fe55bf90018062f",
     "entries": [
       {
         "slug": "index",
@@ -50,12 +50,12 @@
         "permalink": "/notes/welcome",
         "title": "Welcome",
         "visibility": "public",
-        "fingerprint": "68e7bf869e7c9f40e8bd407d092201f1d034893533e47131da58925f20e6d7c5",
-        "contentFingerprint": "37e6f773dd0d1a37fc109ba0e98fd97a87530c405cb403ea299e7039e2823081"
+        "fingerprint": "b8bbf6d585219423d62d16e203969242dd43df3a7c32e3c28e1200cf6c1e9086",
+        "contentFingerprint": "32112e2bc2e8764edb7b39bc81da134a839f92729379eacf6f4cfc41035ba7be"
       }
     ],
     "redirects": [],
-    "artifactFingerprint": "488d3eb33da7f1893748dbccd4119da705178fe7ae4275c54dec14cbdd0d0279",
+    "artifactFingerprint": "c5de56936ea76180cf702f983a6eb4bfc4d9a9f4aef22304660ad070629e9b5c",
     "provider": "cloudflare-workers"
   }
 }
