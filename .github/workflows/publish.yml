@@ -128,7 +128,7 @@ jobs:
           command: deploy
 
       - name: Record publication state
-        run: npm exec riebeckite publish record --provider cloudflare-workers --trigger ci
+        run: npm exec riebeckite publish record --trigger ci
 
       - name: Persist publication state
         shell: bash
