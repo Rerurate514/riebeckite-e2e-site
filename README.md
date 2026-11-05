@@ -110,6 +110,14 @@ The GitHub App needs **Contents: read and write** and **Metadata: read-only**, a
 
 All content is in the Vault repository. This repository only contains code, configuration, and the static attachment in `public/assets/sample.txt`.
 
+## Continuous E2E
+
+This repository tracks the latest stable `@riebeckite/*` release, so it tests the package as an external consumer rather than through a workspace link.
+
+To validate a release candidate, create a branch, pin the candidate version in `package.json`, run `npm install`, `npm exec -- riebeckite check`, and `npm exec -- riebeckite build`, then push the branch and run the publish workflow with `workflow_dispatch`. Keep the version in the commit message. Do not merge the candidate branch until the deploy succeeds; `main` remains on the stable release.
+
+A candidate that changes the content checkout contract also needs a run from the Vault repository to verify the dispatch path.
+
 ## Related documentation
 
 - [Quick Start](https://riebeckite.dev/getting-started/quick-start)
